@@ -8,6 +8,7 @@ const questionElements = Array.from(document.querySelectorAll('label'));
 const submitAnswer = document.querySelector('button');
 const resultBox = document.getElementById('result')
 const quizBox = document.getElementById('quizer')
+const tryAgainBtn = document.querySelector('.again');
 
 const radioHandler = new RadioHandler(radioBtns)
 const quizHandler = new QuizHandler(questions, submitAnswer, questionHeader, questionElements);
@@ -18,3 +19,7 @@ radioHandler.addClickEvents();
 submitAnswer.addEventListener("click", () => {
     quizHandler.submitQuestion(radioHandler, resultBox, quizBox)
 });
+
+tryAgainBtn.addEventListener("click", () => {
+    quizHandler.startAgain(radioHandler, resultBox, quizBox)
+})

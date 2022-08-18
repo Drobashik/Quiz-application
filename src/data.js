@@ -3,11 +3,11 @@ export const questions = [
         title: 'Who is the president of the US?',
         body: {
             0: 'Donald Trump',
-            1: 'Joe Biden',
-            2: 'Karl Henkins',
+            1: 'Karl Henkins',
+            2: 'Joe Biden',
             3: 'Boris Johnson',
         },
-        correct: 'Donald Trump'
+        correct: 'Joe Biden'
     }, {
         title: 'What is the most popular programming language?',
         body: {

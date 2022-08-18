@@ -26,9 +26,11 @@ export class QuizHandler {
         const isEnd = this.endChecker()
         if (radioHandler.isChecked && radioHandler.selectedRadio === this.correctAnswer) {
             this.answeredQuestions++;
-            this.getResult(radioHandler, isEnd, resultBox, quizBox)
+            this.getOrCheckResult(radioHandler, isEnd, resultBox, quizBox)
+        } else if (!radioHandler.isChecked) {
+            return;
         } else {
-            this.getResult(radioHandler, isEnd, resultBox, quizBox)
+            this.getOrCheckResult(radioHandler, isEnd, resultBox, quizBox)
         }
     }
 
@@ -39,20 +41,22 @@ export class QuizHandler {
         return false;
     }
 
-
-    getResult(radioHandler, isEnd, resultBox, quizBox) {
+    getOrCheckResult(radioHandler, isEnd, resultBox, quizBox) {
         if (!isEnd) {
             this.quizNumber++;
             this.setupQuiz(radioHandler)
         } else {
             quizBox.style.display = 'none';
             resultBox.style.display = 'block';
-            resultBox.innerHTML = 
-            `
-            <h1>Results</h1>
-            <h2>Your score is ${this.answeredQuestions}/${this.questions.length}</h3>
-            <button>Okey</button>
-            `
+            resultBox.children[1].innerHTML = `Your score is ${this.answeredQuestions}/${this.questions.length}`
         }
+    }
+
+    startAgain(radioHandler, resultBox, quizBox) {
+        this.quizNumber = 0;
+        this.answeredQuestions = 0;
+        quizBox.style.display = 'block';
+        resultBox.style.display = 'none';
+        this.setupQuiz(radioHandler);
     }
 }
