@@ -24,6 +24,10 @@ body {
     margin-bottom: 100px;
 }
 
+#result {
+    display: none;
+}
+
 .quiz__box button {
     position: absolute;
     bottom: 0;
@@ -43,7 +47,7 @@ body {
     background-color: #264ebb;
 }
 
-h2 {
+h1, h2 {
     text-align: center;
     margin-bottom: 65px;
 }
