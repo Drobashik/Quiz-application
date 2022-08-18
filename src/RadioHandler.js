@@ -1,11 +1,10 @@
 export class RadioHandler {
-
     constructor(radioButtons) {
         this.radioButtons = radioButtons;
         this.isChecked = false;
         this.selectedRadio = '';
     }
-    
+
     addClickEvents() {
         this.radioButtons.forEach(radio => {
             radio.addEventListener("click", (e) => {
